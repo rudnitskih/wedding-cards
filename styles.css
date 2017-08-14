@@ -91,3 +91,14 @@ article.visible {
     fill: transparent;
     z-index: 1;
 }
+
+.logo {
+    width: 2cm;
+    margin: 5mm auto 0;
+}
+
+.date {
+    margin: 2mm auto 5mm;
+    font-size: 3.5mm;
+    font-family: 'Great Vibes', cursive;
+}
