@@ -1,0 +1,149 @@
+<!--suppress JSValidateTypes -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="./styles.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css">
+
+
+    <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
+    <link href="fonts/raleway/stylesheet.css" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">-->
+    <link href="fonts/good-vibes/stylesheet.css" rel="stylesheet">
+    <style>@page {
+        size: A4
+    }</style>
+</head>
+<body class="A4">
+<article>
+    <div class="card">
+        <div class="circle"></div>
+        <!--<div class="logo">-->
+        <!--<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-4.7 -51.2 964.7 611.2" enable-background="new -4.7 -51.2 964.7 611.2" xml:space="preserve">-->
+        <!--<g>-->
+        <!--<path d="M377.7,402.8c0,83.2-64.3,139.7-159.9,139.7h-124V263.6h126.9C314.2,263.6,377.7,320.1,377.7,402.8z M299.1,403.6-->
+        <!--c0-48.1-33.3-80.7-79.9-80.7h-48.3v160.8h52C267.6,483.5,299.1,451.4,299.1,403.6z"/>-->
+        <!--</g>-->
+        <!--<g>-->
+        <!--<path d="M662.2,261.8l69.1,163.7l69.1-163.7h74.4v280.7h-60.2l-0.3-177.8l-60.6,149.7h-44.6l-60.6-149.7v177.8h-60.9V261.8H662.2z"/>-->
+        <!--</g>-->
+        <!--<g id="layer1">-->
+        <!--<path id="path2417" d="M473.2,282.4c-3.6-3.9-12.3-11.6-19.4-17c-21.3-16-24.2-18.4-32.9-26.4c-15.8-14.7-22.7-29.5-22.7-49.4-->
+        <!--c0-9.7,0.7-13.5,3.4-19.3c4.6-9.7,11.4-17,20.1-21.5c6.1-3.1,9.2-4.6,19.6-4.6c10.7,0,13.1,1.2,19.4,4.8-->
+        <!--c7.7,4.3,15.7,13.3,17.4,19.8l1,3.9l2.6-5.5c14.1-31,59.3-30.5,75.1,0.9c4.9,9.9,5.6,31.2,1.2,43.1c-5.8,15.5-16.7,27.4-41.7,45.7-->
+        <!--c-16.4,11.9-35.1,30-36.3,32.5C478.5,292.4,479.8,289.9,473.2,282.4z"/>-->
+        <!--<g id="g2221" transform="translate(129.28571,-64.285714)">-->
+        <!--</g>-->
+        <!--</g>-->
+        <!--<rect x="455.4" y="335.8" width="48.4" height="206.7"/>-->
+        <!--<polygon points="32.6,241.9 490.1,30.1 478.5,4.6 21,216.5 "/>-->
+        <!--<polygon points="924.5,241.9 467,30.1 478.6,4.6 936.1,216.5 "/>-->
+        <!--</svg>-->
+        <!--</div>-->
+
+        <h1 class="title">
+            table
+        </h1>
+
+        <div class="number">
+            <span class="number-value">1</span>
+            <img class="flowers" src="flowers-2.svg">
+        </div>
+
+        <ul class="names"></ul>
+        <svg class="border" viewBox="-1 -1 102 147">
+            <path d="M50,0 L100,20 L100,145 L0,145 L0,20 L0,20z"></path>
+        </svg>
+    </div>
+</article>
+
+<section class="sheet padding-10mm"></section>
+<section class="sheet padding-10mm"></section>
+</body>
+<script>
+    const cardsPerSheet = [
+        [
+            [
+                'Рудницких Марина',
+                'Рудницких Дмитрий',
+                'Карачко Таня',
+                'Геркалюк Богдан',
+                'Рись Оля',
+                'Рись Саша',
+            ],
+            [
+                'Лысенко Ирина',
+                'Данько Станислав',
+                'Рудницких Александр',
+                'Рудницких Елена',
+                'Скрипникова Нина',
+                'Скрипников Виктор',
+                'Выговская Ирина и Елизавета',
+                'Выговская Юрий',
+                'Киричок Валентина',
+                'Киричок Виктор',
+            ],
+            [
+                'Бойчук Тася',
+                'Вовк Влад',
+                'Луценко Света',
+                'Мищенко Виталий',
+                'Землянкина Света',
+                'Землянкин Александр',
+            ],
+            [
+                'Шпак Валентина',
+                'Шпак Ирина',
+                'Шпак Игорь',
+                'Мирошниченко Наташа',
+                'Сухилин Олег',
+                'Сухилина Шура',
+            ],
+        ],
+        [
+            [
+                'Гомонов Виталий',
+                'Бруснаков Михаил',
+                'Свичинский Влад',
+                'Михайлыч Николай',
+                'Скачок Виктория',
+                'Скачок Игорь',
+            ],
+            [
+                'Лена Губарь',
+                'Игорь Омельяненко',
+                'Поддымай Андрей',
+                'Тернавская Анастасия',
+                'TODO Валерий',
+                'Домбровская Наташа',
+                'Домбровский Женя',
+                'Ирина Мыкытась',
+                'Ира Майборода',
+            ]
+        ]
+    ];
+
+    const card = document.querySelector('article');
+    const sheets = document.querySelectorAll('.sheet');
+
+    cardsPerSheet.forEach((cardsOnSheet, sheetNumber) => {
+        cardsOnSheet.forEach((peopleOnCard, i) => {
+            const currentCard = card.cloneNode(true);
+
+            currentCard.querySelector('.number-value').innerText = i + 1 + (sheetNumber * 4);
+            currentCard.classList.add('visible');
+
+            currentCard.querySelector('.names').innerHTML = peopleOnCard
+                .sort()
+                .map((name) => {
+                    return `<li class="name">${name}</li>`;
+                })
+                .join('');
+
+            sheets[sheetNumber].append(currentCard);
+        });
+    });
+</script>
+</html>

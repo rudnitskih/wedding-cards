@@ -1,0 +1,93 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.sheet {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article {
+    display: none;
+    height: 50%;
+    flex: 0 0 50%;
+}
+
+article.visible {
+    display: block;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.card > * {
+    z-index: 10;
+}
+
+.circle {
+    width: 2mm;
+    height: 2mm;
+    margin: 3mm auto 0.5cm auto;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.title {
+    margin: 3mm 0 0 0;
+    line-height: 1;
+    font-size: 2.5cm;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 100;
+}
+
+.logo {
+    width: 30%;
+    margin: 0.2cm auto;
+}
+
+.number {
+    position: relative;
+}
+
+.number-value {
+    font-size: 1.5cm;
+    line-height: 2;
+    font-weight: 600;
+}
+
+.flowers {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: -1.5mm;
+}
+
+.names {
+    list-style: none;
+    margin: 0.25cm 0 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.name {
+    line-height: 1.4;
+    font-size: 4mm;
+}
+
+.border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    stroke: #000;
+    stroke-width: 0.5;
+    fill: transparent;
+    z-index: 1;
+}
