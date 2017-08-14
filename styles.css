@@ -32,7 +32,7 @@ article.visible {
 .circle {
     width: 2mm;
     height: 2mm;
-    margin: 3mm auto 0.5cm auto;
+    margin: 5mm auto;
     border: 1px solid black;
     border-radius: 50%;
 }
@@ -76,8 +76,8 @@ article.visible {
 }
 
 .name {
-    line-height: 1.4;
-    font-size: 4mm;
+    line-height: 1.6;
+    font-size: 4.5mm;
 }
 
 .border {
@@ -99,6 +99,6 @@ article.visible {
 
 .date {
     margin: 2mm auto 5mm;
-    font-size: 3.5mm;
+    font-size: 4mm;
     font-family: 'Great Vibes', cursive;
 }
