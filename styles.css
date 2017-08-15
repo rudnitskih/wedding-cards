@@ -10,7 +10,16 @@ body {
 article {
     display: none;
     height: 50%;
-    flex: 0 0 50%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+body.A4 article {
+    flex-basis: 50%;
+}
+
+body.A3.landscape article {
+    flex-basis: 24%;
 }
 
 article.visible {
@@ -101,4 +110,10 @@ article.visible {
     margin: 2mm auto 5mm;
     font-size: 4mm;
     font-family: 'Great Vibes', cursive;
+}
+
+@media print {
+    .change-size-button {
+        display: none;
+    }
 }

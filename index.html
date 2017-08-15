@@ -1,4 +1,3 @@
-<!--suppress JSValidateTypes -->
 <html>
 <head>
     <meta charset="utf-8">
@@ -12,11 +11,12 @@
     <link href="fonts/raleway/stylesheet.css" rel="stylesheet">
     <!--<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">-->
     <link href="fonts/good-vibes/stylesheet.css" rel="stylesheet">
-    <style>@page {
-        size: A4
-    }</style>
+    <style></style>
 </head>
-<body class="A4">
+<body>
+<button class="change-size-button" onclick="init('A4')">A4</button>
+<button class="change-size-button" onclick="init('A3')">A3</button>
+
 <article>
     <div class="card">
         <div class="circle"></div>
@@ -60,75 +60,113 @@
         </svg>
     </div>
 </article>
-
-<section class="sheet padding-10mm"></section>
-<section class="sheet padding-10mm"></section>
 </body>
 <script>
-    const cardsPerSheet = [
+    const cardArticle = document.querySelector('article');
+
+    const formats = {
+        A4: {
+            css: `A4`,
+            perPage: 4,
+        },
+        A3: {
+            css: `A3 landscape`,
+            perPage: 8
+        }
+    };
+
+    const peoplePerTable = [
         [
-            [
-                'Рудницких Дмитрий и Марина',
-                'Карачко Таня',
-                'Геркалюк Богдан',
-                'Рысь Саша и Оля',
-            ],
-            [
-                'Рудницких Александр и Елена',
-                'Лысенко Ирина и Данько Станислав',
-                'Скрипниковы Виктор и Нина',
-                'Выговские  Юрий, Ирина и Елизавета',
-                'Киричок Виктор и Валентина',
-            ],
-            [
-                'Вовк Влад и Бойчук Тася',
-                'Мищенко Виталий и Луценко Света',
-                'Гомонов Виталий',
-                'Свичинский Влад',
-            ],
-            [
-                'Шпак Игорь, Валентина и Ирина',
-                'Зуевич Наталия',
-                'Сухилины Олег и Александра',
-            ],
+            'Рудницких Дмитрий и Марина',
+            'Карачко Таня',
+            'Геркалюк Богдан',
+            'Рысь Саша и Оля',
         ],
         [
-            [
-                'Бруснаков Михаил',
-                'Михайлыч Николай',
-                'Скачек Игорь и Виктория',
-                'Старченко Александр и Света',
-            ],
-            [
-                'Омельяненко Игорь и Елена',
-                'Поддымай Андрей',
-                'Лашевич Валерий и Тернавская Анастасия',
-                'Домбровские Женя, Наталья и Екатерина',
-                'Мыкытась Ирина',
-                'Майборода Ирина и Гордей',
-            ]
+            'Рудницких Александр и Елена',
+            'Лысенко Ирина и Данько Станислав',
+            'Скрипниковы Виктор и Нина',
+            'Выговские  Юрий, Ирина и Елизавета',
+            'Киричок Виктор и Валентина',
+        ],
+        [
+            'Вовк Влад и Бойчук Тася',
+            'Мищенко Виталий и Луценко Света',
+            'Гомонов Виталий',
+            'Свичинский Влад',
+        ],
+        [
+            'Шпак Игорь, Валентина и Ирина',
+            'Зуевич Наталия',
+            'Сухилины Олег и Александра',
+        ],
+        [
+            'Бруснаков Михаил',
+            'Михайлыч Николай',
+            'Скачек Игорь и Виктория',
+            'Старченко Александр и Света',
+        ],
+        [
+            'Омельяненко Игорь и Елена',
+            'Поддымай Андрей',
+            'Лашевич Валерий и Тернавская Анастасия',
+            'Домбровские Женя, Наталья и Екатерина',
+            'Мыкытась Ирина',
+            'Майборода Ирина и Гордей',
         ]
     ];
 
-    const card = document.querySelector('article');
-    const sheets = document.querySelectorAll('.sheet');
+    init();
 
-    cardsPerSheet.forEach((cardsOnSheet, sheetNumber) => {
-        cardsOnSheet.forEach((peopleOnCard, i) => {
-            const currentCard = card.cloneNode(true);
+    function init(format = 'A3') {
+        const currentFormat = formats[format];
+        const amountPerPage = currentFormat.perPage;
+        const currentStyleTag = document.head.querySelector('style');
 
-            currentCard.querySelector('.number-value').innerText = i + 1 + (sheetNumber * 4);
-            currentCard.classList.add('visible');
+        currentStyleTag.innerHTML = `@page {
+                size: ${currentFormat.css};
+            }`;
 
-            currentCard.querySelector('.names').innerHTML = peopleOnCard
-                .sort()
-                .map((name) => {
-                    return `<li class="name">${name}</li>`;
-                })
-                .join('');
-
-            sheets[sheetNumber].append(currentCard);
+        document.body.className = currentFormat.css;
+        Array.from(document.querySelectorAll('section')).map((nodeElement) => {
+            nodeElement.remove();
         });
-    });
+
+        groupBy(peoplePerTable,
+            (val, index) => {
+                return Math.floor(index / amountPerPage);
+            }
+        ).forEach((cardsOnSheet, sheetNumber) => {
+            const sheetNode = document.createElement('section');
+
+            sheetNode.className = 'sheet padding-10mm';
+
+            cardsOnSheet.forEach((peopleOnCard, i) => {
+                const currentCard = cardArticle.cloneNode(true);
+
+                currentCard.querySelector('.number-value').innerText = i + 1 + (sheetNumber * amountPerPage);
+                currentCard.classList.add('visible');
+
+                currentCard.querySelector('.names').innerHTML = peopleOnCard
+                    .sort()
+                    .map((name) => {
+                        return `<li class="name">${name}</li>`;
+                    })
+                    .join('');
+
+                sheetNode.append(currentCard);
+            });
+
+            document.body.append(sheetNode);
+        });
+    }
+
+    function groupBy(arr, f) {
+        return arr.reduce((out, val, i) => {
+            let by = typeof f === 'function' ? '' + f(val, i) : val[f];
+            (out[by] = out[by] || []).push(val);
+            return out;
+        }, []);
+    }
 </script>
 </html>
